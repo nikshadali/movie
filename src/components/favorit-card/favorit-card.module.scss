@@ -1,0 +1,19 @@
+.root {
+  position: relative;
+  background-color: #3d3b3b;
+  width: 150px;
+  cursor: pointer;
+}
+.favImg {
+  width: 100%;
+}
+.favDetail {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+.favh1 {
+  font-size: 16px;
+  color: #777;
+}

@@ -1,0 +1,37 @@
+.root {
+  flex-grow: 1;
+  flex-shrink: 1;
+  background-color: #1a1712;
+  color: #ffffff;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.logo {
+  display: flex;
+  align-items: center;
+}
+.logoImg {
+  width: 50px;
+  height: 50px;
+}
+.logoText {
+  font-size: 24px;
+  color: rgb(219, 55, 58);
+}
+.title {
+  color: #777;
+}
+.hr {
+  height: 0px;
+  border: 0.5px solid #bcb8b8;
+  width: 100%;
+}
+.list {
+  padding: 1px;
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
