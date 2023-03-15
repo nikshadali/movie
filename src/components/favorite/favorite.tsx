@@ -25,7 +25,7 @@ export const Favorite = ({ className }: FavoriteProps) => {
     const {state} = useContext(FavoriteContext)
     return (
         <div className={classNames(styles.root, className)}>
-            <h1>Heading 1</h1>
+            <h1>Favorites</h1>
             {state.favorites.length > 0 && state.favorites.map(movie => (
 
             <FavoritCard movie={movie} />

@@ -1,7 +1,8 @@
 import styles from './cards.module.scss';
 import classNames from 'classnames';
 import { Card } from '../card/card';
-import {useState, useEffect} from 'react'
+import {useState, useEffect, useContext} from 'react';
+import { SearchContext } from '../../cotext/SearchContext';
 export interface CardsProps {
     className?: string;
     
@@ -23,13 +24,19 @@ export interface Movie {
  */
 export const Cards = ({ className }: CardsProps) => {
    const [movies, setMovies] = useState<Movie[]>([])
-
+    const {state} = useContext(SearchContext);
+    const {sortBy, genre, query} = state;
+    
    useEffect(() => {
-        fetch('https://api.themoviedb.org/3/discover/movie?api_key=c6dea75aab743d997a816226d66d605e')
+        fetch(
+            query !== '' 
+            ?  `https://api.themoviedb.org/3/discover/movie?api_key=c6dea75aab743d997a816226d66d605e&query=${query}`
+            : `https://api.themoviedb.org/3/discover/movie?api_key=c6dea75aab743d997a816226d66d605e&sort_by=${sortBy}&with_genres=${genre}`
+            )
         .then((response) => response.json())
         .then((data) => setMovies(data.results))
         .catch(err => console.log(err))
-   },[])
+   },[sortBy, genre, query])
  console.log(movies)
     return (
         <div className={classNames(styles.root, className)}>
